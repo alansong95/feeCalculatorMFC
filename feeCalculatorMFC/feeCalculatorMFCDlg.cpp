@@ -7,6 +7,10 @@
 #include "feeCalculatorMFCDlg.h"
 #include "afxdialogex.h"
 
+#include <string>
+
+using namespace std;
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -62,6 +66,7 @@ BEGIN_MESSAGE_MAP(CfeeCalculatorMFCDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(btnCalculate, &CfeeCalculatorMFCDlg::OnBnClickedbtncalculate)
 END_MESSAGE_MAP()
 
 
@@ -150,3 +155,10 @@ HCURSOR CfeeCalculatorMFCDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CfeeCalculatorMFCDlg::OnBnClickedbtncalculate()
+{
+	// TODO: Add your control notification handler code here
+
+}
