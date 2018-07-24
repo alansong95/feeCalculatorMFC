@@ -160,5 +160,36 @@ HCURSOR CfeeCalculatorMFCDlg::OnQueryDragIcon()
 void CfeeCalculatorMFCDlg::OnBnClickedbtncalculate()
 {
 	// TODO: Add your control notification handler code here
+	int index = GetCheckedRadioButton(radioFirst, radioLeft);
 
+	CString selectRadioString("Select the student's status");
+	CString tempString("Working");
+
+	if (index == 0) {
+		SetDlgItemText(txtCalculatedFee, selectRadioString);
+	}
+	else {
+		CString temp;
+		double calculatedFee;
+
+		GetDlgItemText(txtFee, temp);
+		double fee = _ttof(temp);
+
+		GetDlgItemText(txtTotalDays, temp);
+		double totalDays = _ttof(temp);
+
+		GetDlgItemText(txtAttendedDays, temp);
+		double attendedDays = _ttof(temp);
+
+		if (index == radioFirst) {
+			calculatedFee = fee / totalDays * attendedDays;
+
+			temp.Format(_T("%.2f"), calculatedFee);
+			SetDlgItemText(txtCalculatedFee, temp);
+		}
+		else if (index == radioLeft) {
+			//calculatedFee = 
+			SetDlgItemText(txtCalculatedFee, tempString);
+		}
+	}
 }
